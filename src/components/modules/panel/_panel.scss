@@ -1,0 +1,34 @@
+// Panels
+//
+// There are two main styles of panels - Primary (default) and Secondary.
+//
+// .panel--secondary - The secondary panel style.
+//
+// Markup: panel.twig
+//
+// Style guide: 6.3
+
+$chroma: add-colors('primary', (
+    panel-bg:                   'blue-light',
+    panel-secondary-bg:         'blue-xlight',
+));
+
+$panel-padding: spacing(25px);
+
+.panel {
+  background-color: color(panel-bg);
+  padding: $panel-padding;
+
+  &__heading {
+    margin-top: 0;
+  }
+
+  &__heading,
+  .button {
+    font-weight: weight(bold);
+  }
+
+  &--secondary {
+    background-color: color(panel-secondary-bg);
+  }
+}
