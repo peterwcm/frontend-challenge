@@ -7,6 +7,7 @@ sass:
 js:
   src:
     - src/components
+  dest: dist/js
 
 styleguide:
   title: Style Guide
@@ -19,3 +20,4 @@ styleguide:
     - dist/css/style-guide/kss-only.css
   jsFiles:
     - https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js
+    - dist/js/modules/accordion/accordion.js

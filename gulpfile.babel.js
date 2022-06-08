@@ -240,6 +240,17 @@ stylesProd.description = 'Outputs CSS ready for production.';
 gulp.task('styles:production', gulp.series('clean:css', stylesProd));
 
 /**
+ * Outputs JS.
+ */
+const js = function() {
+  return gulp.src(config.js.src + '/**/*.js')
+    .pipe(gulp.dest(config.js.dest));
+};
+
+js.description = 'Outputs JS.';
+gulp.task('js', js);
+
+/**
  * Outputs Styleguide CSS.
  */
 const kssStyles = function() {
@@ -307,7 +318,7 @@ gulp.task('watch:sass', watchSass);
  * Reload browserSync automatically after a change to a js file.
  */
 const watchJs = function(e) {
-  gulp.watch(watchFiles.js, watchOptions, gulp.series('lint:js', 'browsersync:reload'));
+  gulp.watch(watchFiles.js, watchOptions, gulp.series('lint:js', 'js', 'browsersync:reload'));
 };
 
 watchJs.description = 'Watch js files and lint them.';
@@ -328,7 +339,7 @@ gulp.task('watch:styleguide', watchStyleguide);
 /**
  * Watch all.
  */
-const watch = gulp.series('styles:development', 'styleguide', 'browsersync:init', 'lint', gulp.parallel('watch:sass', 'watch:js', 'watch:styleguide'));
+const watch = gulp.series('styles:development', 'js', 'styleguide', 'browsersync:init', 'lint', gulp.parallel('watch:sass', 'watch:js', 'watch:styleguide'));
 watch.description = 'Watch styles, js and styleguide files and rebuild as needed on change.';
 gulp.task('watch', watch);
 

@@ -15,6 +15,9 @@
     "Modernizr": true,
     "CKEDITOR": true
   },
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
   "rules": {
     // Errors.
     "array-bracket-spacing": [2, "never"],
