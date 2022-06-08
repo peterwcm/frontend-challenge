@@ -1,7 +1,7 @@
 <div class="accordion js-accordion">
   <section class="accordion__item js-accordion-item {{ modifier_class }}">
     <h3 class="accordion__header">
-      <a href="javascript:void(0)" class="accordion__toggle js-toggle">
+      <a href="javascript:void(0)" class="accordion__toggle js-toggle" aria-expanded="{{ modifier_class == 'is-expanded' ? 'true' : 'false' }}">
         Our approach
         <i>
           <svg width="12" height="8" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
