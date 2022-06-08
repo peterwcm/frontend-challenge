@@ -1,0 +1,59 @@
+// Accordions
+//
+// Accordion description.
+//
+// .is-expanded - Expanded state.
+//
+// Markup: accordion.twig
+//
+// Style guide: 6.2
+
+$chroma: add-colors('primary', (
+  accordion-header-bg:          'blue-light',
+  accordion-contents-bg:        'grey-xxlight',
+  accordion-border:             'grey-xlight'
+));
+
+$accordion-padding: spacing(25px);
+$accordion-border-width: 1px;
+$accordion-gutter: spacing(30px);
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: $accordion-gutter;
+
+  &__item {
+    border: $accordion-border-width solid color(accordion-border);
+
+    &.is-expanded {
+      .accordion__contents {
+        display: block;
+      }
+    }
+  }
+
+  &__header {
+    margin: 0;
+    font-weight: weight(bold);
+  }
+
+  &__toggle {
+    display: flex;
+    padding: $accordion-padding;
+    text-decoration: none;
+    outline: 0;
+    background-color: color(accordion-header-bg);
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+
+  &__contents {
+    display: none;
+    padding: $accordion-padding;
+    background-color: color(accordion-contents-bg);
+  }
+}
